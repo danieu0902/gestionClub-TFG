@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gestión de la Plantilla del Club
 
-## Getting Started
+#GestionDeLaPlantillaDelClub  
+Este repositorio (**gestionClub-TFG**) contiene una aplicación web construida con **Next.js** para la gestión de la plantilla de un club deportivo.  
+La aplicación permite realizar operaciones de **CRUD** (Crear, Leer, Actualizar y Eliminar) sobre una lista de jugadores, con funcionalidades exclusivas para el rol de **administrador**.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🛠️ Tecnologías Utilizadas
+- **Next.js 14**: Framework de React para el lado del servidor y cliente.
+- **React**: Biblioteca para la interfaz de usuario.
+- **Tailwind CSS**: Framework CSS para un desarrollo rápido y con diseños atractivos.
+- **Server Actions**: Funcionalidad de Next.js para manejar peticiones de servidor de forma segura.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## ✨ Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Listado de Jugadores
+- Visualiza a todos los jugadores, agrupados por su demarcación (Portero, Defensa, etc.).
 
-## Learn More
+### CRUD para Admins
+Los usuarios con rol **ADMIN** tienen acceso a las siguientes funcionalidades:
+- **Crear Jugador**: Un formulario para añadir nuevos jugadores a la plantilla.
+- **Actualizar Jugador**: Un formulario para editar la información de un jugador existente.
+- **Eliminar Jugador**: Un botón para eliminar un jugador de forma permanente.
 
-To learn more about Next.js, take a look at the following resources:
+### Integración con API
+La aplicación se conecta con la API externa:  
+➡️ [https://nxapi-gestion-club.vercel.app/api/players](https://nxapi-gestion-club.vercel.app/api/players)  
+para gestionar los datos de los jugadores.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Cómo Empezar
 
-## Deploy on Vercel
+Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/danieu0902/gestionClub-TFG.git
+   cd gestionClub-TFG
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+2. **Instala las dependencias**:
+   ```bash
+   npm install
+
+3. **Ejecuta la aplicacion en modo desarrollo**:
+   ```bash
+   npm run dev
+
+
+## 🔒 Control de acceso
