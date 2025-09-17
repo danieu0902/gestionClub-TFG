@@ -1,6 +1,5 @@
 # Gestión de la Plantilla del Club
 
-#GestionDeLaPlantillaDelClub  
 Este repositorio (**gestionClub-TFG**) contiene una aplicación web construida con **Next.js** para la gestión de la plantilla de un club deportivo.  
 La aplicación permite realizar operaciones de **CRUD** (Crear, Leer, Actualizar y Eliminar) sobre una lista de jugadores, con funcionalidades exclusivas para el rol de **administrador**.
 
