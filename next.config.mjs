@@ -8,6 +8,12 @@ const nextConfig = {
         port: '',
         pathname: '/wp-content/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'icon-library.com',
+        port: '',
+        pathname: '/images/**',
+      },
     ],
   },
 };
