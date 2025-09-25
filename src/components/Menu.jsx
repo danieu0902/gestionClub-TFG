@@ -17,7 +17,7 @@ export default function Menu() {
         <li><Link href="/">Inicio</Link></li>
         <li><Link href="/team">Plantilla</Link></li>
         <li><Link href="/planning">Planning Semanal</Link></li>
-        <li><Link href="/results">Resultados y Clasificación</Link></li>
+        <li><Link href="/resultados">Resultados y Clasificación</Link></li>
         <li><Link href="/gallery">Galería Multimedia</Link></li>
         <li><Link href="/news">Noticias y Comunicados</Link></li>
         {session.user.role === "ADMIN" && (

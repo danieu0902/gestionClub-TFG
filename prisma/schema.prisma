@@ -1,5 +1,3 @@
-// prisma/schema.prisma
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
@@ -70,10 +68,27 @@ model News {
 }
 
 model Result {
-  id          String   @id @default(cuid())
-  opponent    String
-  score       String
-  date        DateTime
+  id      String   @id @default(cuid())
+  team1   String
+  team2   String
+  score1  Int
+  score2  Int
+  crest1  String
+  crest2  String
+  date    DateTime
+}
+
+model Classification {
+  id      String @id @default(cuid())
+  team    String @unique
+  crest   String
+  points  Int
+  pj      Int
+  pg      Int
+  pe      Int
+  pp      Int
+  gf      Int
+  gc      Int
 }
 
 enum Role {
