@@ -4,7 +4,6 @@ import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { FaEdit } from "react-icons/fa";
 
-// Server Action para actualizar resultado
 async function updateResult(id, formData) {
   "use server";
 

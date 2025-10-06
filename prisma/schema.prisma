@@ -14,7 +14,7 @@ model User {
   emailVerified DateTime?
   password      String?
   image         String?
-  role          Role      @default(ADMIN)
+  role          Role      @default(USER)
   accounts      Account[]
   sessions      Session[]
 }
@@ -89,6 +89,16 @@ model Classification {
   pp      Int
   gf      Int
   gc      Int
+}
+
+model Task {
+  id          String    @id @default(uuid())
+  description String
+  day         String
+  completed   Boolean   @default(false)
+  userId      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 enum Role {

@@ -1,11 +1,9 @@
-// src/app/resultados/edit-clasificacion/[id]/page.js
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { FaEdit } from "react-icons/fa";
 
-// Server Action para actualizar equipo
 async function updateTeam(id, formData) {
   "use server";
 

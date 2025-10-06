@@ -3,7 +3,6 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
-// Server Action para crear un nuevo resultado
 async function createResult(formData) {
   "use server";
 
@@ -104,7 +103,7 @@ export default async function CreateResultadoPage() {
           {/* ESCUDOS */}
           <div>
             <label className="block text-sm font-semibold text-gray-700">
-              🛡️ Cresta Equipo 1 (URL)
+              🛡️ Escudo Equipo 1 (URL)
             </label>
             <input
               type="text"
@@ -119,7 +118,7 @@ export default async function CreateResultadoPage() {
 
           <div>
             <label className="block text-sm font-semibold text-gray-700">
-              🛡️ Cresta Equipo 2 (URL)
+              🛡️ Escudo Equipo 2 (URL)
             </label>
             <input
               type="text"

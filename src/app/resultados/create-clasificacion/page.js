@@ -1,11 +1,11 @@
-// src/app/clasificacion/create/page.js
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { FaUsers } from "react-icons/fa";
 
-// Server Action para crear un nuevo equipo en la clasificación
+
 async function createTeam(formData) {
   "use server";
 
