@@ -10,7 +10,7 @@ export default function Home() {
 
   if (status === "loading") {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-black text-white">
         <p>Cargando...</p>
       </div>
     );
@@ -18,24 +18,29 @@ export default function Home() {
 
   if (session) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-        <div className="bg-white p-8 rounded-lg shadow-md text-center">
-          <h1 className="text-2xl font-bold mb-2">
-            ¡Hola, {session.user.name}!
-          </h1>
-          <p className="text-gray-600 mb-4">Tu rol es: {session.user.role}</p>
+      <div className="relative flex flex-col items-center justify-center min-h-screen p-4 overflow-hidden">
+        {/* 🎥 Video de fondo */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source
+            src="https://ciudaddelucena.es/wp-content/uploads/2024/09/cabecera.mp4"
+            type="video/mp4"
+          />
+        </video>
 
-          <div className="flex flex-col space-y-4">
-            <Link href="/team" className="mt-4 px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-              Ver Plantilla
-            </Link>
-            <button
-              onClick={() => signOut()}
-              className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
-            >
-              Cerrar sesión
-            </button>
-          </div>
+        {/* Capa oscura */}
+        <div className="absolute inset-0 bg-black/50 z-0"></div>
+
+        {/* Contenido */}
+        <div className="relative z-10  p-8 rounded-lg shadow-md text-center max-w-md w-full">
+          <h1 className="text-2xl font-bold mb-2 text-white">
+            BIENVENIDO A LA PAGINA WEB DEL CLUB (NOMBRE DEL CLUB)
+          </h1>
         </div>
       </div>
     );

@@ -77,7 +77,6 @@ export default function LoginForm() {
         </button>
       </form>
 
-      {/* Divisor para separar el formulario del login social */}
       <div className="relative my-6">
         <div className="absolute inset-0 flex items-center">
           <div className="w-full border-t border-gray-300"></div>
@@ -103,7 +102,6 @@ export default function LoginForm() {
         >
           <FaDiscord className="text-xl" />
         </button>
-      
       </div>
     </div>
   );

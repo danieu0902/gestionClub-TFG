@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import DiscordProvider from "next-auth/providers/discord";
-import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials"; 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
@@ -12,7 +11,6 @@ const prisma = new PrismaClient();
 export const authOptions = {
   adapter: PrismaAdapter(prisma), 
   providers: [
-    // Proveedores OAuth existentes
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -21,7 +19,7 @@ export const authOptions = {
       clientId: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,
     }),
-    // ¡Nuevo proveedor de credenciales!
+    
     CredentialsProvider({
       name: "Credentials",
       credentials: {
@@ -40,7 +38,7 @@ export const authOptions = {
         });
 
         if (!user || !user.password) {
-          return null; // Usuario no encontrado o sin contraseña (si usa OAuth)
+          return null; 
         }
 
         // Compara la contraseña hasheada
@@ -50,17 +48,16 @@ export const authOptions = {
         );
 
         if (!isPasswordValid) {
-          return null; // Contraseña incorrecta
+          return null; 
         }
 
-        // Si la autenticación es exitosa, devuelve el objeto de usuario
-        // NextAuth usará este objeto 'user' para el callback 'jwt'
+       
         return {
           id: user.id,
           name: user.name,
           email: user.email,
-          image: user.image, // Asegúrate de que tu modelo User tenga 'image'
-          role: user.role, // <-- Asegúrate de que el rol se devuelve aquí
+          image: user.image, 
+          role: user.role,
         };
       },
     }),
