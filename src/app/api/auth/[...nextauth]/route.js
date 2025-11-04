@@ -2,10 +2,10 @@ import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import DiscordProvider from "next-auth/providers/discord";
 import GitHubProvider from "next-auth/providers/github";
-import CredentialsProvider from "next-auth/providers/credentials"; // <-- ¡Importa esto!
+import CredentialsProvider from "next-auth/providers/credentials"; 
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
-import bcrypt from 'bcryptjs'; // <-- ¡Importa bcryptjs!
+import bcrypt from 'bcryptjs'; 
 
 const prisma = new PrismaClient();
 
@@ -20,10 +20,6 @@ export const authOptions = {
     DiscordProvider({
       clientId: process.env.DISCORD_CLIENT_ID,
       clientSecret: process.env.DISCORD_CLIENT_SECRET,
-    }),
-    GitHubProvider({
-      clientId: process.env.GITHUB_CLIENT_ID,
-      clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     // ¡Nuevo proveedor de credenciales!
     CredentialsProvider({

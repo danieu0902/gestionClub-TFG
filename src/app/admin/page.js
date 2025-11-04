@@ -37,14 +37,14 @@ export default async function AdminPage() {
     },
     {
       title: "Clasificación",
-      description: "Consulta la tabla de posiciones",
-      href: "/resultados#clasificacion",
+      description: "Consulta la tabla de posiciones y los resultados del equipo",
+      href: "/resultados#classification",
       icon: <FaChartBar className="text-green-600 text-4xl" />,
       color: "from-green-50 to-green-100 hover:shadow-green-300",
     },
     {
-      title: "Planificación",
-      description: "Administra las tareas y el calendario del club",
+      title: "Planificación y Eventos",
+      description: "Administra las tareas y eventos semanales del club",
       href: "/planning",
       icon: <FaClipboardList className="text-indigo-600 text-4xl" />,
       color: "from-indigo-50 to-indigo-100 hover:shadow-indigo-300",
@@ -55,13 +55,6 @@ export default async function AdminPage() {
       href: "/news",
       icon: <FaNewspaper className="text-red-500 text-4xl" />,
       color: "from-red-50 to-red-100 hover:shadow-red-300",
-    },
-    {
-      title: "Eventos",
-      description: "Organiza próximos eventos y actividades",
-      href: "/events",
-      icon: <FaCalendarAlt className="text-purple-600 text-4xl" />,
-      color: "from-purple-50 to-purple-100 hover:shadow-purple-300",
     },
   ];
 

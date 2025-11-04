@@ -39,7 +39,7 @@ export default function LoginForm() {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-      <h2 className="text-2xl font-bold mb-6 text-center">Inicia Sesión</h2>
+      <h2 className="text-blue-500 text-2xl font-bold mb-6 text-center">Inicia Sesión</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
@@ -83,12 +83,12 @@ export default function LoginForm() {
           <div className="w-full border-t border-gray-300"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="bg-white px-2 text-gray-500">O inicia sesión con</span>
+          <span className="bg-white px-2 text-blue-500">O inicia sesión con</span>
         </div>
       </div>
 
-      {/* Botones de OAuth - AHORA EN UNA FILA */}
-      <div className="flex justify-between space-x-2"> {/* <-- ¡Clases cambiadas! */}
+      {/* Botones de OAuth */}
+      <div className="flex justify-between space-x-2"> 
         {/* Botón de Google con icono */}
         <button
           onClick={() => signIn("google")}
@@ -103,13 +103,7 @@ export default function LoginForm() {
         >
           <FaDiscord className="text-xl" />
         </button>
-        {/* Botón de GitHub con icono */}
-        <button
-          onClick={() => signIn("github")}
-          className="flex-1 flex items-center justify-center py-2 bg-gray-800 text-white rounded hover:bg-gray-900 transition"
-        >
-          <FaGithub className="text-xl" />
-        </button>
+      
       </div>
     </div>
   );

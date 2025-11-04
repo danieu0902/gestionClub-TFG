@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Menu() {
   const { data: session } = useSession();
@@ -22,6 +22,14 @@ export default function Menu() {
         <li><Link href="/news">Noticias y Comunicados</Link></li>
         {session.user.role === "ADMIN" && (
           <li><Link href="/admin">Panel de Administración</Link></li>
+        )}
+         {session && (
+          <li><button
+                        onClick={() => signOut()}
+                        className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+                      >
+                        Cerrar sesión
+                      </button></li>
         )}
       </ul>
     </nav>

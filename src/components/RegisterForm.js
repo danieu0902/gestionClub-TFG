@@ -59,7 +59,7 @@ export default function RegisterForm() {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
-      <h2 className="text-2xl font-bold mb-6 text-center">Registro</h2>
+      <h2 className=" text-blue-500 text-2xl font-bold mb-6 text-center">Registro</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
