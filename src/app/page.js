@@ -41,6 +41,9 @@ export default function Home() {
           <h1 className="text-2xl font-bold mb-2 text-white">
             BIENVENIDO A LA PAGINA WEB DEL CLUB (NOMBRE DEL CLUB)
           </h1>
+          <p className="text-gray-200 mb-6">
+            Gestiona fácilmente tu equipo, resultados, noticias y más desde esta plataforma.
+          </p>
         </div>
       </div>
     );

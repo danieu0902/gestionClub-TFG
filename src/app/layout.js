@@ -1,6 +1,7 @@
 import "./globals.css";
 import Providers from "./providers";
 import Menu from "@/components/Menu";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: 'Gestión Club',
@@ -12,6 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body>
         <Providers><Menu />{children}</Providers>
+        <Footer />
       </body>
     </html>
   );
