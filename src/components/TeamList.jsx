@@ -40,7 +40,7 @@ export default async function TeamList() {
   const session = await getServerSession(authOptions);
   const players = await getPlayers();
 
-  // Agrupar por demarcación
+  // Agrupar jugadores por demarcación
   const playersByDemarcacion = players.reduce((acc, player) => {
     const { demarcacion } = player;
     if (!acc[demarcacion]) acc[demarcacion] = [];
@@ -61,28 +61,30 @@ export default async function TeamList() {
     .concat(allDemarcaciones.filter((d) => !orderedDemarcaciones.includes(d)));
 
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Botón Crear jugador (solo admin) */}
       {session?.user?.role === "ADMIN" && (
-        <div className="flex justify-end mb-8">
+        <div className="flex justify-center sm:justify-end mb-8">
           <Link href="/team/create">
-            <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
+            <button className="flex items-center gap-2 px-5 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition w-full sm:w-auto justify-center">
               <FaUserPlus /> Crear Nuevo Jugador
             </button>
           </Link>
         </div>
       )}
 
+      {/* Listado por demarcaciones */}
       {sortedDemarcaciones.map((demarcacion) => (
         <section key={demarcacion} className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-gray-700 border-b-4 border-blue-500 pb-2">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-gray-700 border-b-4 border-blue-500 pb-2 text-center sm:text-left">
             {demarcacion}
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {playersByDemarcacion[demarcacion].map((player) => (
               <article
                 key={player._id}
-                className="bg-white p-4 rounded-xl shadow-md relative transform transition-transform duration-300 hover:scale-105"
+                className="bg-white p-4 rounded-xl shadow-md relative transform transition-transform duration-300 hover:scale-105 flex flex-col items-center"
               >
                 <Image
                   src={player.fotoUrl}
@@ -92,14 +94,14 @@ export default async function TeamList() {
                   className="w-full h-auto rounded-lg mb-4 object-cover aspect-square"
                 />
 
-                <div>
+                <div className="text-center">
                   <h1 className="text-blue-600 text-3xl font-extrabold">
                     {player.dorsal}
                   </h1>
-                  <h2 className="text-xl font-semibold text-gray-900">
+                  <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
                     {player.nombre}
                   </h2>
-                  <p className="text-gray-600">{player.demarcacion}</p>
+                  <p className="text-gray-600 text-sm">{player.demarcacion}</p>
                 </div>
 
                 {session?.user?.role === "ADMIN" && (
