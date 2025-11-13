@@ -92,7 +92,7 @@ export default async function EditResultadoPage({ params }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900">Cresta Equipo 1 (URL)</label>
+            <label className="block text-sm font-medium text-gray-900">Escudo Equipo 1 (URL)</label>
             <input
               type="text"
               name="crest1"
@@ -103,7 +103,7 @@ export default async function EditResultadoPage({ params }) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900">Cresta Equipo 2 (URL)</label>
+            <label className="block text-sm font-medium text-gray-900">Escudo Equipo 2 (URL)</label>
             <input
               type="text"
               name="crest2"
