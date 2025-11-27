@@ -1,12 +1,28 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
+import { FiEdit, FiTrash2 } from "react-icons/fi";
+import { revalidatePath } from "next/cache";
 
 export default async function NoticiasList() {
   const session = await getServerSession(authOptions);
+  const userIsAdmin = session?.user?.role === "ADMIN";
+
   const noticias = await prisma.news.findMany({
     orderBy: { createdAt: "desc" },
   });
+
+  // Eliminación directa sin archivo externo
+  async function deleteNews(id) {
+    "use server";
+
+    await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news/${id}`, {
+      method: "DELETE",
+    });
+
+    // refrescar la lista
+    revalidatePath("/news");
+  }
 
   if (noticias.length === 0) {
     return (
@@ -42,11 +58,28 @@ export default async function NoticiasList() {
               className="w-full h-56 object-cover"
             />
           )}
+
           <div className="p-5 flex flex-col justify-between h-full">
-            <h2 className="text-xl font-bold text-gray-800 mb-3">
-              {n.title}
-            </h2>
+            <div className="flex justify-between items-start mb-3">
+              <h2 className="text-xl font-bold text-gray-800">{n.title}</h2>
+
+              {userIsAdmin && (
+                <div className="flex items-center gap-3">
+
+                  {/* EDITAR */}
+                  <a
+                    href={`/news/edit/${n.id}`}
+                    className="text-blue-600 hover:text-blue-800 transition"
+                    title="Editar"
+                  >
+                    <FiEdit size={20} />
+                  </a>
+                </div>
+              )}
+            </div>
+
             <p className="text-gray-600 text-sm flex-grow">{n.content}</p>
+
             <p className="text-xs text-gray-400 mt-4">
               {new Date(n.createdAt).toLocaleDateString("es-ES")}
             </p>

@@ -43,7 +43,7 @@ export default async function EditNewsPage({ params }) {
               name="title"
               defaultValue={noticia.title}
               required
-              className="mt-1 block w-full border border-black rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
+              className="text-black mt-1 block w-full border border-black rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -56,7 +56,7 @@ export default async function EditNewsPage({ params }) {
               rows="6"
               defaultValue={noticia.content}
               required
-              className="mt-1 block w-full border border-black rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
+              className="text-black mt-1 block w-full border border-black rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             ></textarea>
           </div>
 
@@ -69,7 +69,7 @@ export default async function EditNewsPage({ params }) {
               name="image"
               defaultValue={noticia.image || ""}
               placeholder="https://..."
-              className="mt-1 block w-full border border-black rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
+              className="text-black mt-1 block w-full border border-black rounded-md px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
