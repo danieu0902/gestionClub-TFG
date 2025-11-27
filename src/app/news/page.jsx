@@ -16,7 +16,7 @@ export default async function NoticiasPage() {
         </h1>
 
         {session?.user?.role === "ADMIN" && (
-          <Link href="/noticias/create">
+          <Link href="/news/create">
             <button className="flex items-center gap-2 px-5 py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition-transform transform hover:scale-105">
               <FaPlus /> Añadir Noticia
             </button>
